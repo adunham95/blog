@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../layout";
+import Container from "../layout/container.tsx"
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
@@ -10,26 +11,29 @@ import "./listing.css";
 function Listing({ pageContext, data }) {
   function renderPaging() {
     const { currentPageNum, pageCount } = pageContext;
-    const prevPage = currentPageNum - 1 === 1 ? "/" : `/${currentPageNum - 1}/`;
-    const nextPage = `/${currentPageNum + 1}/`;
+    const prevPage = currentPageNum - 1 === 1 ? "/blog" : `/blog/${currentPageNum - 1}/`;
+    const nextPage = `/blog/${currentPageNum + 1}/`;
     const isFirstPage = currentPageNum === 1;
     const isLastPage = currentPageNum === pageCount;
 
     return (
-      <div className="paging-container">
-        {!isFirstPage && <Link to={prevPage}>Previous</Link>}
+      <div>
+        {!isFirstPage && <Link className='relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
+          to={prevPage}>Previous</Link>}
         {[...Array(pageCount)].map((_val, index) => {
           const pageNum = index + 1;
           return (
             <Link
               key={`listing-page-${pageNum}`}
-              to={pageNum === 1 ? "/" : `/${pageNum}/`}
+              to={pageNum === 1 ? "/blog" : `/blog/${pageNum}/`}
+              className='bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium'
             >
               {pageNum}
             </Link>
           );
         })}
-        {!isLastPage && <Link to={nextPage}>Next</Link>}
+        {!isLastPage && <Link className='relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50'
+          to={nextPage}>Next</Link>}
       </div>
     );
   }
@@ -38,14 +42,15 @@ function Listing({ pageContext, data }) {
 
   return (
     <Layout>
-      <div className="listing-container">
-        <div className="posts-container">
-          <Helmet title={config.siteTitle} />
-          <SEO />
-          <PostListing postEdges={postEdges} />
-        </div>
-        {renderPaging()}
-      </div>
+      <Helmet title={config.siteTitle} />
+      <SEO />
+      <Container>
+        <PostListing postEdges={postEdges} />
+        <nav className="pt-1 relative z-0 flex justify-end rounded-md -space-x-px"
+          aria-label="Pagination">
+          {renderPaging()}
+        </nav>
+      </Container>
     </Layout>
   );
 }

@@ -82,12 +82,12 @@ exports.createPages = async ({ graphql, actions }) => {
   postsEdges.sort((postA, postB) => {
     const dateA = moment(
       postA.node.frontmatter.date,
-      siteConfig.dateFromFormat
+      siteConfig.dateFromFormat,
     );
 
     const dateB = moment(
       postB.node.frontmatter.date,
-      siteConfig.dateFromFormat
+      siteConfig.dateFromFormat,
     );
 
     if (dateA.isBefore(dateB)) return 1;
@@ -103,7 +103,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     [...Array(pageCount)].forEach((_val, pageNum) => {
       createPage({
-        path: pageNum === 0 ? `/` : `/${pageNum + 1}/`,
+        path: pageNum === 0 ? `/blog` : `/blog/${pageNum + 1}`,
         component: listingPage,
         context: {
           limit: postsPerPage,
@@ -116,7 +116,7 @@ exports.createPages = async ({ graphql, actions }) => {
   } else {
     // Load the landing page instead
     createPage({
-      path: `/`,
+      path: `/blog`,
       component: landingPage,
     });
   }

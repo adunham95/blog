@@ -1,13 +1,13 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Layout from "../layout";
-import Container from "../layout/container"
+import Container from "../layout/container.tsx"
 import config from "../../data/SiteConfig";
 
 function AboutPage() {
   return (
     <Layout>
-      <Helmet title={`About | ${config.siteTitle}`} />
+      <Helmet title={`${config.siteTitle}`} />
       <Container
         background="transparent"
         text="white"

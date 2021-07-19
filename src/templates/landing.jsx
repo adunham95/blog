@@ -12,7 +12,7 @@ function Landing({ data }) {
     <Layout>
       <div className="landing-container">
         <div className="posts-container">
-          <Helmet title={config.siteTitle} />
+          <Helmet title={`Blog | ${config.siteTitle}`} />
           <SEO />
           <PostListing postEdges={postEdges} />
         </div>
