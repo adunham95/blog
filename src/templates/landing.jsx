@@ -22,27 +22,3 @@ function Landing({ data }) {
 }
 
 export default Landing;
-
-/* eslint no-undef: "off" */
-export const pageQuery = graphql`
-  query LandingQuery {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          fields {
-            slug
-            date
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            cover
-            date
-          }
-        }
-      }
-    }
-  }
-`;
