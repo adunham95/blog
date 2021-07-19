@@ -37,6 +37,7 @@
     "url-join": "^4.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.3.1",
     "cli-glob": "^0.1.0",
     "eslint": "^7.30.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -46,7 +47,9 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "gatsby-plugin-postcss": "^4.9.0",
     "gh-pages": "^3.2.3",
+    "postcss": "^8.3.5",
     "prettier": "^2.3.2",
     "remark-cli": "^9.0.0",
     "remark-preset-lint-recommended": "^5.0.0",
@@ -54,6 +57,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-prettier": "^1.2.0",
+    "tailwindcss": "^2.2.4",
     "write-good": "^1.0.8"
   },
   "keywords": [
