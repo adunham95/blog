@@ -16,7 +16,7 @@ module.exports = {
       description: config.siteDescription,
       image_url: `${urljoin(
         config.siteUrl,
-        config.pathPrefix
+        config.pathPrefix,
       )}/logos/logo-512.png`,
       copyright: config.copyright,
     },
@@ -78,12 +78,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-twitter",
     "gatsby-plugin-sitemap",
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: config.disqusShortname,
-      },
-    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
