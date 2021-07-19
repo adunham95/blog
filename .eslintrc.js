@@ -23,5 +23,6 @@ module.exports = {
     "global-require": 0,
     "no-underscore-dangle": 0,
     "react/react-in-jsx-scope": 0,
+    "indent": ["error", 2],
   },
 };

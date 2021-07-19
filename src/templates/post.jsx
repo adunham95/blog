@@ -23,7 +23,9 @@ export default function PostTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        <SEO postPath={slug} postNode={postNode} postSEO />
+        <SEO postPath={slug}
+          postNode={postNode}
+          postSEO />
         <div>
           <h1>{post.title}</h1>
           {/* eslint-disable-next-line react/no-danger */}
