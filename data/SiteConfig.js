@@ -8,9 +8,9 @@ const config = {
   siteDescription: "A GatsbyJS starter with Advanced design in mind.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
   siteRssTitle: "Gatsby Advanced Starter RSS feed", // Title of the RSS feed
-  siteFBAppID: "1825356251115265", // FB Application ID for using app insights
-  googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
-  disqusShortname: "https-vagr9k-github-io-gatsby-advanced-starter", // Disqus shortname.
+  siteFBAppID: "", // FB Application ID for using app insights
+  googleAnalyticsID: "", // GA tracking ID.
+  disqusShortname: "", // Disqus shortname.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "DD/MM/YYYY", // Date format for display.
   postsPerPage: 5, // Amount of posts displayed per listing page.
@@ -39,7 +39,7 @@ const config = {
       iconClassName: "fa fa-envelope",
     },
   ],
-  copyright: "Copyright © 2020. Advanced User", // Copyright string for the footer of the website and RSS feed.
+  copyright: "Copyright © 2021. Adrian Dunham", // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.
   backgroundColor: "#e0e0e0", // Used for setting manifest background color.
 };
