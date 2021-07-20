@@ -33,7 +33,7 @@ function buildPost(answers){
   const fileData = 
 `---
 title: "${answers.name}"
-cover: ""
+cover: "1.jpg"
 date: "${moment(new Date(), 'YYYY-MM-DD')}"
 category: ${answers.category}
 tags:

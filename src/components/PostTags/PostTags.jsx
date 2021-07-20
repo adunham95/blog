@@ -11,7 +11,6 @@ function PostTags({ tags }) {
           <Tag
             key={tag}
             name={tag}
-            to={`/tags/${_.kebabCase(tag)}`}
           />
         ))}
     </div>

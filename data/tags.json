@@ -1,1 +1,12 @@
-[{"name":"programming","checked":true,"color":"#059669"},{"name":"testing","checked":false,"color":"#DC2626"}]
+[
+    {"name":"programming","checked":true,"color":"#059669"},
+    {"name":"testing","checked":false,"color":"#DC2626"},
+    {"name":"test","checked":false,"color":"#DC2626"},
+    {"name":"cheese","checked":false,"color":"#FFD60B"},
+    {"name":"SCSS","checked":false,"color":"#CC6699"},
+    {"name":"Styled Components","checked":false,"color":"#DB7093"},
+    {"name":"Gatsby","checked":false,"color":"#663399"},
+    {"name":"Next","checked":false,"color":"#000000"},
+    {"name":"Javascript","checked":false,"color":"#F7DF1E"},
+    {"name":"Node JS","checked":false,"color":"#339933"}
+]

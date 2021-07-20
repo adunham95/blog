@@ -27,7 +27,7 @@ function SEO({ postNode, postPath, postSEO }) {
   const getImagePath = (imageURI) => {
     if (
       !imageURI.match(
-        `(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`
+        `(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`,
       )
     )
       return urljoin(config.siteUrl, config.pathPrefix, imageURI);
@@ -104,14 +104,16 @@ function SEO({ postNode, postPath, postSEO }) {
         },
         datePublished,
         description,
-      }
+      },
     );
   }
   return (
     <Helmet>
       {/* General tags */}
-      <meta name="description" content={description} />
-      <meta name="image" content={image} />
+      <meta name="description"
+        content={description} />
+      <meta name="image"
+        content={image} />
 
       {/* Schema.org tags */}
       <script type="application/ld+json">
@@ -119,25 +121,34 @@ function SEO({ postNode, postPath, postSEO }) {
       </script>
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={postSEO ? postURL : blogURL} />
-      {postSEO ? <meta property="og:type" content="article" /> : null}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:url"
+        content={postSEO ? postURL : blogURL} />
+      {postSEO ? <meta property="og:type"
+        content="article" /> : null}
+      <meta property="og:title"
+        content={title} />
+      <meta property="og:description"
+        content={description} />
+      <meta property="og:image"
+        content={image} />
       <meta
         property="fb:app_id"
         content={config.siteFBAppID ? config.siteFBAppID : ""}
       />
 
       {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card"
+        content="summary_large_image" />
       <meta
         name="twitter:creator"
         content={config.userTwitter ? config.userTwitter : ""}
       />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:title"
+        content={title} />
+      <meta name="twitter:description"
+        content={description} />
+      <meta name="twitter:image"
+        content={image} />
     </Helmet>
   );
 }
