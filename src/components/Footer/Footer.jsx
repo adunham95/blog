@@ -10,22 +10,12 @@ function Footer({ config }) {
     return null;
   }
   return (
-    <footer className="footer">
+    <footer className="pt-10 pb-2">
       <UserLinks config={config}
+        rss={url}
         labeled />
-      <div className="notice-container">
-        <h4>{copyright}</h4>
-
-        {/* <Link to={url}>
-          <button type="button">Subscribe</button>
-        </Link> */}
-        {/* <h4>
-          Based on{" "}
-          <a href="https://github.com/Vagr9K/gatsby-advanced-starter">
-            Gatsby Advanced Starter
-          </a>
-          .
-        </h4> */}
+      <div className="flex justify-center text-sm">
+        <p>{copyright}</p>
       </div>
     </footer>
   );

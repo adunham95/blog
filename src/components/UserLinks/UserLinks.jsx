@@ -1,13 +1,34 @@
+import { Link } from "gatsby";
 import React from "react";
-import "./UserLinks.css";
+import { EmailIcon } from "../Icons/EmailIcons";
+import { GithubIcon } from "../Icons/GithubIcon";
+import { Rssicon } from "../Icons/RSSIcon";
+import { TwitterIcon } from "../Icons/TwitterIcon";
 
-function UserLinks({ config, labeled }) {
+function UserLinks({ config, labeled, rss='' }) {
+
+  function getIcon(iconName){
+    switch (iconName) {
+    case "GitHub":
+      return <GithubIcon height="30px"/>
+    case "Twitter":
+      return <TwitterIcon height="30px"/>
+    case "Email":
+      return <EmailIcon height="30px"/>
+    default:
+      return <span>{iconName}</span>
+    }
+  }
+
   function getLinkElements() {
     const { userLinks } = config;
 
+
     return userLinks.map((link) => (
-      <a href={link.url} key={link.label}>
-        <button type="button">{labeled ? link.label : ""}</button>
+      <a href={link.url}
+        className='p-2'
+        key={link.label}>
+        {getIcon(link.label)}
       </a>
     ));
   }
@@ -16,7 +37,16 @@ function UserLinks({ config, labeled }) {
   if (!userLinks) {
     return null;
   }
-  return <div className="user-links">{getLinkElements()}</div>;
+  return <div className="flex justify-center">
+    {getLinkElements()}
+    {
+      rss !== '' ? <Link to={rss}
+        className="p-2">
+        <Rssicon height="30px"/>
+      </Link> : ''
+    }
+  </div>;
+
 }
 
 export default UserLinks;

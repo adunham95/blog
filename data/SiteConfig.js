@@ -1,3 +1,5 @@
+const currentYear = new Date().getFullYear();
+
 const config = {
   siteTitle: "Adrian Dunham", // Site title.
   siteTitleShort: "Adrian Blog", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
@@ -26,20 +28,19 @@ const config = {
     {
       label: "GitHub",
       url: "https://github.com/adunham95",
-      iconClassName: "fa fa-github",
     },
     {
       label: "Twitter",
       url: "https://twitter.com/adunham95",
-      iconClassName: "fa fa-twitter",
+      icon: "fa fa-twitter",
     },
     {
       label: "Email",
       url: "mailto:vagr9k@gmail.com",
-      iconClassName: "fa fa-envelope",
+      icon: "fa fa-envelope",
     },
   ],
-  copyright: "Copyright © 2021. Adrian Dunham", // Copyright string for the footer of the website and RSS feed.
+  copyright: `Copyright © ${currentYear}. Adrian Dunham`, // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.
   backgroundColor: "#e0e0e0", // Used for setting manifest background color.
 };

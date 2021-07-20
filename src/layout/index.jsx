@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import config from "../../data/SiteConfig";
+import Footer from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
 
 export default function MainLayout({ children }) {
@@ -15,6 +16,7 @@ export default function MainLayout({ children }) {
       <main className=''>
         {children}
       </main>
+      <Footer config={config}/>
     </div>
   );
 }
