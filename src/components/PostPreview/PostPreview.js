@@ -1,46 +1,10 @@
 import { graphql, Link, StaticQuery } from 'gatsby'
 import React from 'react'
+import { Tag } from '../Tag/Tag'
 
 function generateColor(){
   return 'from-indigo-400 to-indigo-700'
 }
-
-const Tag = ({name}) => (
-  <StaticQuery
-    query={graphql`
-    query TagQuery {
-        allTagsJson {
-          nodes {
-            color
-            name
-          }
-        }
-      }
-      `}
-    render={data => {
-      const info = data.allTagsJson.nodes.filter(d => d.name===name);
-      const defaultStyles = "text-xs pt-0.5 px-1 pb-1 mr-1 rounded"
-
-      if(name==='hidden'){
-        return(
-          <span className={`${defaultStyles} bg-transparent text-transparent`}>{name}</span>
-        )
-      }
-      if(info.length > 0){
-        const tagData = info[0];
-        return(
-          <span className={`${defaultStyles} text-white bg-black`}
-            style={{backgroundColor:tagData.color}}>{name}</span>
-        )
-      }
-        
-      return(
-        <span className={`${defaultStyles} text-white bg-black`}>{name}</span>
-      )
-
-    }}
-  />
-)
 
 export const PostPreview = ({cover='', title, className='', tags=[], slug='', story='' }) => (
   <div className={className}>
