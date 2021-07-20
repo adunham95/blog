@@ -4,9 +4,13 @@ import { graphql } from "gatsby";
 import Layout from "../layout";
 import Container from "../layout/container.tsx"
 import config from "../../data/SiteConfig";
+import { PostPreview } from "../components/PostPreview/PostPreview";
 
 function HomePage({data}) {
   const recentPosts = data.allMarkdownRemark.nodes
+
+  console.log(recentPosts)
+
   return (
     <Layout>
       <Helmet title={`${config.siteTitle}`} />
@@ -32,8 +36,16 @@ function HomePage({data}) {
           <p className="max-w-md font-body pb-2 pt-1">I&apos;m a web developer based in Knoxville, Tennessee. I love web tech, Javascript and gadgets.</p>
         </div>
       </Container>
-      <Container>
-        <div>Posts</div>
+      <Container className="pt-4">
+        <h2 className="text-2xl border-b-2 border-blue-400 mb-4">Recent Posts</h2>
+        <div className="flex flex-col md:flex-row">
+          {recentPosts.map(p => <PostPreview key={p.id}
+            className="w-full mb-2 md:w-1/3"
+            title={p.frontmatter.title}
+            tags={p.frontmatter.tags}
+            slug={p.fields.slug}
+          />)}
+        </div>
       </Container>
     </Layout>
   );
