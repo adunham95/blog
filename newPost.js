@@ -8,6 +8,7 @@ const questions = [
     type : "input",
     name : `name`,
     message : "Post Name: ",
+    default: "coding",
   },
   {
     type : "input",
