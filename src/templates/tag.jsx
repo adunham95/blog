@@ -19,6 +19,7 @@ export default function TagTemplate({ pageContext, data }) {
             title={p.node.frontmatter.title}
             tags={p.node.frontmatter.tags}
             slug={p.node.fields.slug}
+            excerpt={p.node.excerpt}
           />)}
         </div>
       </Container>

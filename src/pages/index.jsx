@@ -46,6 +46,7 @@ function HomePage({data}) {
             title={p.frontmatter.title}
             tags={p.frontmatter.tags}
             slug={p.fields.slug}
+            excerpt={p.excerpt}
           />)}
         </div>
       </Container>
@@ -69,7 +70,9 @@ query MostRecent {
       fields {
         slug
       }
+      excerpt
     }
   }
 }
+
 `

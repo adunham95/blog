@@ -53,6 +53,7 @@ function Listing({ pageContext, data }) {
             title={p.node.frontmatter.title}
             tags={p.node.frontmatter.tags}
             slug={p.node.fields.slug}
+            excerpt={p.node.excerpt}
           />)}
         </div>
         <nav className="pt-1 relative z-0 flex justify-end rounded-md -space-x-px"

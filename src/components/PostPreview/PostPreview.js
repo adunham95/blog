@@ -6,7 +6,7 @@ function generateColor(){
   return 'from-indigo-400 to-indigo-700'
 }
 
-export const PostPreview = ({cover='', title, className='', tags=[], slug='', story='' }) => (
+export const PostPreview = ({cover='', title, className='', tags=[], slug='', excerpt='' }) => (
   <div className={className}>
     {
       cover === "" ? <div className={`bg-gradient-to-br ${generateColor()} rounded h-28 m-1`} /> : <div />
@@ -18,7 +18,7 @@ export const PostPreview = ({cover='', title, className='', tags=[], slug='', st
       }
       <Tag name='hidden'/>
     </div>
-    <p className="text-base py-2">This is a large set of text</p>
+    <p className="text-base py-2">{excerpt}</p>
     <div className='inline-flex justify-end w-full pr-2'>
       <Link to={slug}
         className="text-xs duration-100 border-transparent hover:border-blue-400 border-b-2">Read More</Link>
