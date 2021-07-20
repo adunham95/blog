@@ -11,7 +11,7 @@ export const PostPreview = ({cover='', title, className='', tags=[], slug='', st
     {
       cover === "" ? <div className={`bg-gradient-to-br ${generateColor()} rounded h-28 m-1`} /> : <div />
     }  
-    <h3 className='text-xl'><Link to={slug}>{title}</Link></h3>
+    <h3 className='text-xl truncate'><Link to={slug}>{title}</Link></h3>
     <div className='inline-flex sm'>
       {
         tags !== null && tags.slice(0,3).map(t => <Tag name={t}/>)

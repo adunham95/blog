@@ -6,7 +6,7 @@ import Container from "../layout/container.tsx"
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
-import "./listing.css";
+import { PostPreview } from "../components/PostPreview/PostPreview";
 
 function Listing({ pageContext, data }) {
   function renderPaging() {
@@ -39,13 +39,22 @@ function Listing({ pageContext, data }) {
   }
 
   const postEdges = data.allMarkdownRemark.edges;
+  console.log(postEdges)
 
   return (
     <Layout>
       <Helmet title={config.siteTitle} />
       <SEO />
-      <Container>
-        <PostListing postEdges={postEdges} />
+      <Container className="pt-5">
+        <h2 className="text-4xl border-b-2 border-blue-400 mb-4">Posts</h2>
+        <div className="flex flex-col md:flex-row md:flex-wrap">
+          {postEdges.map(p => <PostPreview key={p.id}
+            className="w-full mb-2 md:w-1/3"
+            title={p.node.frontmatter.title}
+            tags={p.node.frontmatter.tags}
+            slug={p.node.fields.slug}
+          />)}
+        </div>
         <nav className="pt-1 relative z-0 flex justify-end rounded-md -space-x-px"
           aria-label="Pagination">
           {renderPaging()}
