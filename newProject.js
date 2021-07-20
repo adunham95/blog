@@ -12,6 +12,11 @@ const questions = [
   },
   {
     type : "input",
+    name : `projectLink`,
+    message : "Project Link: ",
+  },
+  {
+    type : "input",
     name : `description`,
     message : "Project Description: ",
     default: '',
@@ -51,6 +56,7 @@ function buildPost(answers){
     tags: answers.tags,
     openSource: answers.isOpenSource,
     sourceLink: answers.sourceCode,
+    projectLink: answers.projectLink,
     description: answers.description,   
     cover: '',
     screenshots: [],
