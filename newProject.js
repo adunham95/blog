@@ -28,6 +28,11 @@ const questions = [
     message: "Is this project open source?",
   },
   {
+    name: "sourceCode",
+    type: "input",
+    message: "Hosted souce code?",
+  },
+  {
     type : "checkbox",
     name : `tags`,
     message : "Tags: ",
@@ -45,8 +50,10 @@ function buildPost(answers){
     title: answers.name,
     tags: answers.tags,
     openSource: answers.isOpenSource,
+    sourceLink: answers.sourceCode,
     description: answers.description,   
     cover: '',
+    screenshots: [],
   }
   console.log(fileData)
 
@@ -54,12 +61,11 @@ function buildPost(answers){
 
   if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
-        
-    fs.writeFile(`${dir}/${fileName}`, JSON.stringify(fileData), (err) => {
-      if (err) throw err;
-      console.log('File is created successfully.');
-    });
   }
+  fs.writeFile(`${dir}/${fileName}`, JSON.stringify(fileData), (err) => {
+    if (err) throw err;
+    console.log('File is created successfully.');
+  });
 }
 
 function startPompt(){

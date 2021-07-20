@@ -46,12 +46,11 @@ tags:
 
   if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
-        
-    fs.writeFile(`${dir}/${fileName}`, JSON.stringify(fileData), (err) => {
-      if (err) throw err;
-      console.log('File is created successfully.');
-    });
   }
+  fs.writeFile(`${dir}/${fileName}`, JSON.stringify(fileData), (err) => {
+    if (err) throw err;
+    console.log('File is created successfully.');
+  });
 }
 
 function startPompt(){
