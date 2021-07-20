@@ -36,6 +36,7 @@
   "devDependencies": {
     "autoprefixer": "^10.3.1",
     "cli-glob": "^0.1.0",
+    "commander": "^8.0.0",
     "eslint": "^7.30.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^8.3.0",
@@ -46,6 +47,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "gatsby-plugin-postcss": "^4.9.0",
     "gh-pages": "^3.2.3",
+    "inquirer": "^8.1.2",
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
     "remark-cli": "^9.0.0",
@@ -75,7 +77,9 @@
     "lint:md": "remark content/",
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
-    "format:styles": "prettier '**/*.{css,scss}' --write"
+    "format:styles": "prettier '**/*.{css,scss}' --write",
+    "new:Post":"node newPost.js",
+    "new:Tag": "node newTag.js"
   },
   "remarkConfig": {
     "plugins": [
