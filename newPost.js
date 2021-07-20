@@ -10,6 +10,11 @@ const questions = [
     message : "Post Name: ",
   },
   {
+    type : "input",
+    name : `category`,
+    message : "Post Category: ",
+  },
+  {
     type : "checkbox",
     name : `tags`,
     message : "Tags: ",
@@ -29,9 +34,9 @@ function buildPost(answers){
 title: "${answers.name}"
 cover: "8.jpg"
 date: "${moment(new Date(), 'YYYY-MM-DD')}"
-category: "tech"
+category: ${answers.category}
 tags:
-    ${answers.tags.map(t => `-${t}`).join("\n")}
+    ${answers.tags.map(t => `- ${t}`).join("\n")}
 ---
 `
   console.log(fileData)
