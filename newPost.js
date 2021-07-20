@@ -42,10 +42,16 @@ tags:
 `
   console.log(fileData)
   
-  fs.writeFile(`content/${fileName}`, fileData, (err) => {
-    if (err) throw err;
-    console.log('File is created successfully.');
-  });
+  const dir = 'content/blog'
+
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+        
+    fs.writeFile(`${dir}/${fileName}`, JSON.stringify(fileData), (err) => {
+      if (err) throw err;
+      console.log('File is created successfully.');
+    });
+  }
 }
 
 function startPompt(){
