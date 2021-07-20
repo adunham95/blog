@@ -4,7 +4,7 @@ import { Banner } from './Banner';
 const links = [
   {title: "Home", link:'/'},
   {title: "Blog", link:'/blog'},
-  {title: "Projects", link:'/project'},
+  // {title: "Projects", link:'/project'},
 ]
 
 const banner = {
@@ -82,6 +82,7 @@ export const Header = () => {
               {
                 links.map(l =>
                   <a href={l.link}
+                    key={`${l.title}-desktop`}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{l.title}</a>,
                 )
               }
@@ -96,6 +97,7 @@ export const Header = () => {
             {
               links.map(l =>
                 <a href={l.link}
+                  key={`${l.title}-mobile`}
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{l.title}</a>,
               )
             }

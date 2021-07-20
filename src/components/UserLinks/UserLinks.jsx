@@ -10,11 +10,14 @@ function UserLinks({ config, labeled, rss='' }) {
   function getIcon(iconName){
     switch (iconName) {
     case "GitHub":
-      return <GithubIcon height="30px"/>
+      return <GithubIcon height="30px"
+        width="30px"/>
     case "Twitter":
-      return <TwitterIcon height="30px"/>
+      return <TwitterIcon height="30px"
+        width="30px"/>
     case "Email":
-      return <EmailIcon height="30px"/>
+      return <EmailIcon height="30px"
+        width="30px"/>
     default:
       return <span>{iconName}</span>
     }

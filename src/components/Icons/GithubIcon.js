@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const GithubIcon = ({color='#181717', width="50x", height="50x"}) => (
+export const GithubIcon = ({color='#181717', width="50px", height="50px"}) => (
   <svg xmlns="http://www.w3.org/2000/svg"
     role="img"
     height={height}

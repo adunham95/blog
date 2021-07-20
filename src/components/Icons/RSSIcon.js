@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Rssicon = ({color='#FFA500', width="50x", height="50x"}) => (
+export const Rssicon = ({color='#FFA500', width="50px", height="50px"}) => (
   <svg xmlns="http://www.w3.org/2000/svg"
     height={height}
     width={width}
