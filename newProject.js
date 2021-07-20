@@ -45,8 +45,8 @@ function buildPost(answers){
     title: answers.name,
     tags: answers.tags,
     openSource: answers.isOpenSource,
-    description: answers.description,
-
+    description: answers.description,   
+    cover: '',
   }
   console.log(fileData)
 
