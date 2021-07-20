@@ -32,12 +32,10 @@ const config = {
     {
       label: "Twitter",
       url: "https://twitter.com/adunham95",
-      icon: "fa fa-twitter",
     },
     {
       label: "Email",
       url: "mailto:vagr9k@gmail.com",
-      icon: "fa fa-envelope",
     },
   ],
   copyright: `© ${currentYear} Adrian Dunham. All Rights Reserved`, // Copyright string for the footer of the website and RSS feed.
