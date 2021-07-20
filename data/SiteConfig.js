@@ -40,7 +40,7 @@ const config = {
       icon: "fa fa-envelope",
     },
   ],
-  copyright: `Copyright © ${currentYear}. Adrian Dunham`, // Copyright string for the footer of the website and RSS feed.
+  copyright: `© ${currentYear} Adrian Dunham. All Rights Reserved`, // Copyright string for the footer of the website and RSS feed.
   themeColor: "#c62828", // Used for setting manifest and progress theme colors.
   backgroundColor: "#e0e0e0", // Used for setting manifest background color.
 };
