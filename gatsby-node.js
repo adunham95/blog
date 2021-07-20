@@ -35,13 +35,31 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         createNodeField({ node, name: "date", value: date.toISOString() });
       }
     }
-    createNodeField({ node, name: "slug", value: slug });
+    createNodeField({ node, name: "slug", value: `/blog${slug}` });
+  }
+  if(node.internal.type === 'ProjectJson'){
+    const fileNode = getNode(node.parent);
+    const parsedFilePath = path.parse(fileNode.relativePath);
+    if (
+      Object.prototype.hasOwnProperty.call(node, "title")
+    ) {
+      slug = `/${_.kebabCase(node.title)}`;
+    } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
+      slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`;
+    } else if (parsedFilePath.dir === "") {
+      slug = `/${parsedFilePath.name}/`;
+    } else {
+      slug = `/${parsedFilePath.dir}/`;
+    }
+
+    createNodeField({ node, name: "slug", value: `/project${slug}` });
   }
 };
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const postPage = path.resolve("src/templates/post.jsx");
+  const projectPage = path.resolve("src/templates/project.jsx");
   const tagPage = path.resolve("src/templates/tag.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
   const listingPage = path.resolve("./src/templates/listing.jsx");
@@ -49,23 +67,34 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Get a full list of markdown posts
   const markdownQueryResult = await graphql(`
-    {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              tags
-              category
-              date
-            }
+  {
+    allMarkdownRemark {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            tags
+            category
+            date
           }
         }
       }
     }
+    allProjectJson {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          title
+          tags
+        }
+      }
+    }
+  }  
   `);
 
   if (markdownQueryResult.errors) {
@@ -77,6 +106,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const categorySet = new Set();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
+  const projectEdges = markdownQueryResult.data.allProjectJson.edges;
 
   // Sort posts
   postsEdges.sort((postA, postB) => {
@@ -95,6 +125,22 @@ exports.createPages = async ({ graphql, actions }) => {
 
     return 0;
   });
+
+  // Sort projects
+  projectEdges.sort((projectA, projectB) => {
+    const dateA = moment(
+      projectA.node.date,
+      siteConfig.dateFromFormat,
+    );
+    const dateB = moment(
+      projectB.node.date,
+      siteConfig.dateFromFormat,
+    );
+    if (dateA.isBefore(dateB)) return 1;
+    if (dateB.isBefore(dateA)) return -1;
+
+    return 0;
+  })
 
   // Paging
   const { postsPerPage } = siteConfig;
@@ -152,6 +198,35 @@ exports.createPages = async ({ graphql, actions }) => {
         prevslug: prevEdge.node.fields.slug,
       },
     });
+  });
+
+
+  // Create project pages
+  projectEdges.forEach((edge, index)=> {
+    // Generate List of tags
+    if(edge.node.tags){
+      edge.node.tags.forEach((tag) => {
+        tagSet.add(tag);
+      });
+    }
+
+    const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
+    const prevID = index - 1 >= 0 ? index - 1 : postsEdges.length - 1;
+    const nextEdge = postsEdges[nextID];
+    const prevEdge = postsEdges[prevID];
+
+    createPage({
+      path: edge.node.fields.slug,
+      component: projectPage,
+      context: {
+        slug: edge.node.fields.slug,
+        nexttitle: nextEdge.node.title,
+        nextslug: nextEdge.node.fields.slug,
+        prevtitle: prevEdge.node.title,
+        prevslug: prevEdge.node.fields.slug,
+      },
+    });
+
   });
 
   //  Create tag pages

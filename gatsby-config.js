@@ -25,6 +25,7 @@ module.exports = {
     'gatsby-plugin-postcss',
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-lodash",
+    `gatsby-transformer-json`,
     {
       resolve: "gatsby-source-filesystem",
       options: {

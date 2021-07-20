@@ -23,6 +23,7 @@
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-remark-responsive-iframe": "^4.5.0",
     "gatsby-source-filesystem": "^3.8.0",
+    "gatsby-transformer-json": "^3.9.0",
     "gatsby-transformer-remark": "^4.5.0",
     "gatsby-transformer-sharp": "^3.8.0",
     "lodash": "^4.17.21",
@@ -78,7 +79,7 @@
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "format:styles": "prettier '**/*.{css,scss}' --write",
-    "new:Post":"node newPost.js",
+    "new:Post": "node newPost.js",
     "new:Tag": "node newTag.js"
   },
   "remarkConfig": {
