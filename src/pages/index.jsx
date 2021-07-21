@@ -7,9 +7,7 @@ import config from "../../data/SiteConfig";
 import { PostPreview } from "../components/PostPreview/PostPreview";
 
 function HomePage({data}) {
-  const recentPosts = data.allMarkdownRemark.nodes
-
-  console.log(recentPosts)
+  const recentPosts = data.allMarkdownRemark.nodes;
 
   return (
     <Layout>
