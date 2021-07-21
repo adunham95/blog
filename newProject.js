@@ -1,7 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const moment = require("moment");
-const someObject = require('./data/tags.json');
+const tagsObject = require('./data/tags.json');
+const technologyObject = require('./data/technology.json');
 
 const questions = [
   {
@@ -41,7 +42,7 @@ const questions = [
     type : "checkbox",
     name : `tags`,
     message : "Tags: ",
-    choices: someObject,
+    choices: [...tagsObject, ...technologyObject],
   },
 ];
 

@@ -15,17 +15,24 @@ function pickTextColorBasedOnBgColorSimple(bgColor, lightColor, darkColor) {
 export const Tag = ({name, className, to='#'}) => (
   <StaticQuery
     query={graphql`
-      query TagQuery {
-          allTagsJson {
-            nodes {
-              color
-              name
-            }
-          }
+    query TagQuery {
+      allTagsJson {
+        nodes {
+          color
+          name
         }
+      }
+      allTechnologyJson {
+        nodes {
+          name
+          color
+        }
+      }
+    }
         `}
     render={data => {
-      const info = data.allTagsJson.nodes.filter(d => d.name.toLowerCase()===name.toLowerCase());
+      const allTags = [...data.allTagsJson.nodes, ...data.allTechnologyJson.nodes]
+      const info = allTags.filter(d => d.name.toLowerCase()===name.toLowerCase());
       const defaultStyles = "text-xs pt-0.5 px-1 pb-1 mr-1 rounded"
   
       if(name==='hidden'){
