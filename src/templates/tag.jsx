@@ -29,29 +29,45 @@ export default function TagTemplate({ pageContext, data }) {
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query TagPage($tag: String) {
-    allMarkdownRemark(
-      limit: 1000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
-    ) {
-      totalCount
-      edges {
-        node {
-          fields {
-            slug
-            date
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            cover
-            date
-          }
+query TagPage($tag: String!) {
+  allMarkdownRemark(
+    limit: 1000
+    sort: {fields: [frontmatter___date], order: DESC}
+    filter: {frontmatter: {tags: {in: [$tag]}}}
+  ) {
+    totalCount
+    edges {
+      node {
+        fields {
+          slug
+          date
+        }
+        excerpt
+        timeToRead
+        id
+        frontmatter {
+          title
+          tags
+          cover
+          date
         }
       }
     }
   }
+  allProjectJson(limit: 1000, filter: {tags: {in: [$tag]}}) {
+    totalCount
+    edges {
+      node {
+        title
+        tags
+        stack
+        description
+        id
+        fields {
+          slug
+        }
+      }
+    }
+  }
+}
 `;

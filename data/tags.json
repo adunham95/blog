@@ -2,5 +2,6 @@
     {"name":"Programming","checked":true,"color":"#059669"},
     {"name":"testing","checked":false,"color":"#DC2626"},
     {"name":"test","checked":false,"color":"#DC2626"},
-    {"name":"cheese","checked":false,"color":"#FFD60B"}
+    {"name":"cheese","checked":false,"color":"#FFD60B"},
+    {"name":"VS Code","checked":false,"color":"#007acc"}
 ]

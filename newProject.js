@@ -44,6 +44,12 @@ const questions = [
     message : "Tags: ",
     choices: [...tagsObject, ...technologyObject],
   },
+  {
+    type : "checkbox",
+    name : `stack`,
+    message : "Tech Stack: ",
+    choices: technologyObject,
+  },
 ];
 
 function buildPost(answers){
@@ -54,12 +60,13 @@ function buildPost(answers){
   const fileData = 
   {
     title: answers.name,
-    tags: answers.tags,
+    tags: [...answers.stack, ...answers.tags],
+    stack: answers.stack,
     openSource: answers.isOpenSource,
     sourceLink: answers.sourceCode,
     projectLink: answers.projectLink,
     description: answers.description,   
-    cover: '',
+    cover: '1.jpg',
     screenshots: [],
   }
   console.log(fileData)

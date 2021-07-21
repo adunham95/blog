@@ -6,5 +6,13 @@
     {"name":"Javascript","checked":true,"color":"#F7DF1E"},
     {"name":"Node JS","checked":false,"color":"#339933"},
     {"name":"Tailwind CSS","checked":false,"color":"#38B2AC"},
-    {"name":"React","checked":false,"color":"#61DAFB"}
+    {"name":"React","checked":false,"color":"#61DAFB"},
+    {"name":"React Native","checked":false,"color":"#61DAFB"},
+    {"name":"MongoDB","checked":false,"color":"#47a248"},
+    {"name":"Netlify","checked":false,"color":"#00C7b7"},
+    {"name":"Svelte","checked":false,"color":"#ff3e00"},
+    {"name":"Typescript","checked":false,"color":"#3178c6"},
+    {"name":"Vue","checked":false,"color":"#4fc00d"},
+    {"name":"Webpack","checked":false,"color":"#8dd6f9"},
+    {"name":"Wordpress","checked":false,"color":"#21759b"}
 ]
