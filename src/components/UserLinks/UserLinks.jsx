@@ -2,21 +2,25 @@ import { Link } from "gatsby";
 import React from "react";
 import { EmailIcon } from "../Icons/EmailIcons";
 import { GithubIcon } from "../Icons/GithubIcon";
+import { LinkedinIcon } from "../Icons/LinkedinIcon";
 import { Rssicon } from "../Icons/RSSIcon";
 import { TwitterIcon } from "../Icons/TwitterIcon";
 
 function UserLinks({ config, labeled, rss='' }) {
 
   function getIcon(iconName){
-    switch (iconName) {
-    case "GitHub":
+    switch (iconName.toLowerCase()) {
+    case "github":
       return <GithubIcon height="30px"
         width="30px"/>
-    case "Twitter":
+    case "twitter":
       return <TwitterIcon height="30px"
         width="30px"/>
-    case "Email":
+    case "email":
       return <EmailIcon height="30px"
+        width="30px"/>
+    case "linkedin":
+      return <LinkedinIcon height="30px"
         width="30px"/>
     default:
       return <span>{iconName}</span>

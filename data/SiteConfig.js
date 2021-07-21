@@ -34,6 +34,10 @@ const config = {
       url: "https://twitter.com/adunham95",
     },
     {
+      label: "Linkedin",
+      url: "https://www.linkedin.com/in/adrian-dunham-2521488a/",
+    },
+    {
       label: "Email",
       url: "mailto:vagr9k@gmail.com",
     },
