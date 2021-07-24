@@ -5,9 +5,12 @@ import Layout from "../layout";
 import Container from "../layout/container.tsx"
 import config from "../../data/SiteConfig";
 import { PostPreview } from "../components/PostPreview/PostPreview";
+import { ProjectPreview } from "../components/ProjectPreview/ProjectPreview";
 
 function HomePage({data}) {
   const recentPosts = data.allMarkdownRemark.nodes;
+  const recentProjects = data.allProjectJson.nodes;
+  console.log(recentProjects)
 
   return (
     <Layout>
@@ -48,6 +51,18 @@ function HomePage({data}) {
           />)}
         </div>
       </Container>
+      <Container className="pt-4">
+        <h2 className="text-2xl border-b-2 border-blue-400 mb-4">Recent Projects</h2>
+        <div className="flex flex-col md:flex-row">
+          {recentProjects.map(p => <ProjectPreview key={p.id}
+            className="w-full mb-2 md:w-1/3"
+            title={p.title}
+            tags={p.tags}
+            slug={p.fields.slug}
+            description={p.description}
+          />)}
+        </div>
+      </Container>
     </Layout>
   );
 }
@@ -71,6 +86,16 @@ query MostRecent {
       excerpt
     }
   }
+  allProjectJson(limit: 3) {
+    nodes {
+      id
+      tags
+      title
+      fields {
+        slug
+      }
+      description
+    }
+  }
 }
-
 `
