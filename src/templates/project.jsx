@@ -2,12 +2,9 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../layout";
+import Container from "../layout/container.tsx";
 import PostTags from "../components/PostTags/PostTags";
-import SEO from "../components/SEO/SEO";
-import Footer from "../components/Footer/Footer";
 import config from "../../data/SiteConfig";
-import "./b16-tomorrow-dark.css";
-import "./post.css";
 
 export default function ProjectTemplate({ data, pageContext }) {
   const { slug } = pageContext;
@@ -22,19 +19,16 @@ export default function ProjectTemplate({ data, pageContext }) {
         <Helmet>
           <title>{`${project.title} | ${config.siteTitle}`}</title>
         </Helmet>
-        
-        <div>
-          <h1>{project.title}</h1>
+
+        <Container>
+          {project.cover? <div className="bg-gradient-to-br from-indigo-400 to-indigo-700 rounded-b h-80 m-1 mt-0" />: "Cover Image"} 
+          <h1 className="text-5xl my-2">{project.title}</h1>
           <p>{project.openSource? "Open Source": "Closed Source"}</p>
-          <p>{project.description}</p>
-          {/* <h1>{post.title}</h1>
-          {/* eslint-disable-next-line react/no-danger */}
-          {/* <div dangerouslySetInnerHTML={{ __html: postNode.html }} /> */}
-          <div className="post-meta">
+          <div className="mb-2">
             <PostTags tags={project.tags} />
-          </div> 
-          <Footer config={config} />
-        </div>
+          </div>
+        </Container>
+      
       </div>
     </Layout>
   );
