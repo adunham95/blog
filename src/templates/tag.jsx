@@ -58,7 +58,7 @@ query TagPage($tag: String!) {
   allMarkdownRemark(
     limit: 1000
     sort: {fields: [frontmatter___date], order: DESC}
-    filter: {frontmatter: {tags: {in: [$tag]}}}
+    filter: {frontmatter: {tags: {in: [$tag]}, draft: {ne: true}}}
   ) {
     totalCount
     edges {

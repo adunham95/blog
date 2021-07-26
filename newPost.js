@@ -33,6 +33,7 @@ function buildPost(answers){
   
   const fileData = 
 `---
+draft: true
 title: "${answers.name}"
 cover: "1.jpg"
 date: "${moment(new Date(), 'YYYY-MM-DD')}"
@@ -48,7 +49,7 @@ tags:
   if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
   }
-  fs.writeFile(`${dir}/${fileName}`, JSON.stringify(fileData), (err) => {
+  fs.writeFile(`${dir}/${fileName}`, fileData, (err) => {
     if (err) throw err;
     console.log('File is created successfully.');
   });
