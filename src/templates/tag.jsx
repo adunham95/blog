@@ -25,7 +25,8 @@ export default function TagTemplate({ pageContext, data }) {
 
   return (
     <Layout>
-      <Helmet title={`Posts tagged as "${tag}" | ${config.siteTitle}`} /><Container className="pt-5">
+      <Helmet title={`Posts tagged as "${tag}" | ${config.siteTitle}`} />
+      <Container className="pt-5">
         <h2 className="text-4xl border-b-2 border-blue-400 mb-4 pb-2">Tagged as {tag}</h2>
         <div className="flex flex-col md:flex-row md:flex-wrap">
           {postEdges.map(p => <PostPreview key={p.id}
