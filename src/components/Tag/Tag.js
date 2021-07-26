@@ -12,6 +12,20 @@ function pickTextColorBasedOnBgColorSimple(bgColor, lightColor, darkColor) {
     ? darkColor : lightColor;
 }
 
+function isLowerCase(str)
+{
+  return str == str.toLowerCase() && str != str.toUpperCase();
+}
+
+function captitilizeFirstLetter(string){
+  const split = string.split('');
+  if(!isLowerCase(split[0])){
+    return string
+  }
+  split[0] = split[0].toUpperCase();
+  return split.join('')
+}
+
 export const Tag = ({name, className, to='#'}) => (
   <StaticQuery
     query={graphql`
@@ -45,13 +59,13 @@ export const Tag = ({name, className, to='#'}) => (
         return(
           <Link to={`/tags/${_.kebabCase(name)}`}
             className={`${defaultStyles} ${pickTextColorBasedOnBgColorSimple(tagData.color, 'text-white', 'text-black')}`}
-            style={{backgroundColor:tagData.color}}>{name}</Link>
+            style={{backgroundColor:tagData.color}}>{captitilizeFirstLetter(name)}</Link>
         )
       }
           
       return(
         <Link to={`/tags/${_.kebabCase(name)}`}
-          className={`${defaultStyles} text-white bg-black`}>{name}</Link>
+          className={`${defaultStyles} text-white bg-black`}>{captitilizeFirstLetter(name)}</Link>
       )
   
     }}

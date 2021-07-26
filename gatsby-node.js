@@ -63,6 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagPage = path.resolve("src/templates/tag.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
   const listingPage = path.resolve("./src/templates/listing.jsx");
+  const projectListingPage = path.resolve("./src/templates/projectList.jsx");
   const landingPage = path.resolve("./src/templates/landing.jsx");
 
   // Get a full list of markdown posts
@@ -200,6 +201,29 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  // Project Pageing
+  if (postsPerPage) {
+    const pageCount = Math.ceil(projectEdges.length / postsPerPage);
+
+    [...Array(pageCount)].forEach((_val, pageNum) => {
+      createPage({
+        path: pageNum === 0 ? `/project` : `/project/${pageNum + 1}`,
+        component: projectListingPage,
+        context: {
+          limit: postsPerPage,
+          skip: pageNum * postsPerPage,
+          pageCount,
+          currentPageNum: pageNum + 1,
+        },
+      });
+    });
+  } else {
+    // Load the landing page instead
+    createPage({
+      path: `/project`,
+      component: landingPage,
+    });
+  }
 
   // Create project pages
   projectEdges.forEach((edge, index)=> {

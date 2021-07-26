@@ -1,10 +1,11 @@
+import { Link } from 'gatsby';
 import React, { useState } from 'react'
 import { Banner } from './Banner';
 
 const links = [
   {title: "Home", link:'/'},
   {title: "Blog", link:'/blog'},
-  // {title: "Projects", link:'/project'},
+  {title: "Projects", link:'/project'},
 ]
 
 const banner = {
@@ -81,9 +82,9 @@ export const Header = () => {
             <div className="hidden sm:block sm:ml-6 absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               {
                 links.map(l =>
-                  <a href={l.link}
+                  <Link to={l.link}
                     key={`${l.title}-desktop`}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{l.title}</a>,
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{l.title}</Link>,
                 )
               }
             </div>
@@ -96,9 +97,9 @@ export const Header = () => {
           <div className="px-2 pt-2 pb-3 space-y-1">
             {
               links.map(l =>
-                <a href={l.link}
+                <Link to={l.link}
                   key={`${l.title}-mobile`}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{l.title}</a>,
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{l.title}</Link>,
               )
             }
             
