@@ -71,7 +71,11 @@ export default HomePage;
 
 export const query = graphql`
 query MostRecent {
-  allMarkdownRemark(limit: 3, sort: {fields: frontmatter___date, order: DESC}) {
+  allMarkdownRemark(
+    limit: 3
+    sort: {fields: frontmatter___date, order: DESC}
+    filter: {frontmatter: {draft: {ne: true}}}
+  ) {
     nodes {
       id
       frontmatter {

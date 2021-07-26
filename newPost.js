@@ -1,3 +1,4 @@
+const _ = require("lodash");
 const inquirer = require('inquirer');
 const fs = require('fs');
 const moment = require("moment");
@@ -27,7 +28,7 @@ const questions = [
 function buildPost(answers){
   console.log(answers);
   
-  const fileName = `${new Date().toISOString()}.md`;
+  const fileName = `${_.replace(answers.name, " ", "-")}_${new Date().toISOString()}.md`;
 
   console.log(fileName);
   
@@ -39,7 +40,7 @@ cover: "1.jpg"
 date: "${moment(new Date(), 'YYYY-MM-DD')}"
 category: ${answers.category}
 tags:
-    ${answers.tags.map(t => `- ${t}`).join("\n")}
+    ${answers.tags.map(t => `- ${t}`).join("\n    ")}
 ---
 `
   console.log(fileData)
