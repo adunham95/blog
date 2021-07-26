@@ -3,6 +3,7 @@
     {"name":"Styled Components","checked":false,"color":"#DB7093"},
     {"name":"Gatsby","checked":false,"color":"#663399"},
     {"name":"Next","checked":false,"color":"#000000"},
+    {"name":"NPM","checked":false,"color":"#CB3837"},
     {"name":"Javascript","checked":true,"color":"#F7DF1E"},
     {"name":"Node JS","checked":false,"color":"#339933"},
     {"name":"Tailwind CSS","checked":false,"color":"#38B2AC"},
