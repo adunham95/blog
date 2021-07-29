@@ -3,5 +3,7 @@
     {"name":"testing","checked":false,"color":"#DC2626"},
     {"name":"test","checked":false,"color":"#DC2626"},
     {"name":"cheese","checked":false,"color":"#FFD60B"},
-    {"name":"VS Code","checked":false,"color":"#007acc"}
+    {"name":"VS Code","checked":false,"color":"#007acc"},
+    {"name":"Ubuntu","checked":false,"color":"dd4814"},
+    {"name":"Windows","checked":fals,"color":"e072c6"}
 ]
