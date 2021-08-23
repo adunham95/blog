@@ -6,15 +6,17 @@ function generateColor(){
   return 'from-indigo-400 to-indigo-700'
 }
 
-export const ProjectPreview = ({cover='', title, className='', tags=[], slug='', description='' }) => (
+export const ProjectPreview = ({cover='', title, className='', tags=[], stack=[], slug='', description='' }) => (
   <div className={className}>
     {
-      cover === "" ? <div className={`bg-gradient-to-br ${generateColor()} rounded h-28 m-1`} /> : <div />
+      cover === "" ? <div className={`bg-gradient-to-br ${generateColor()} rounded h-28 m-1`} /> : <div className='rounded h-28 m-1'><img className='rounded'
+        src={cover} /></div>
+
     }  
     <h3 className='text-xl truncate'><Link to={slug}>{title}</Link></h3>
     <div className='inline-flex sm'>
       {
-        tags !== null && tags.slice(0,3).map(t => <Tag key={t}
+        tags !== null && [...stack, ...tags].slice(0,3).map(t => <Tag key={t}
           name={t}/>)
       }
       <Tag name='hidden'/>

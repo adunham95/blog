@@ -42,7 +42,7 @@ const questions = [
     type : "checkbox",
     name : `tags`,
     message : "Tags: ",
-    choices: [...tagsObject, ...technologyObject],
+    choices: tagsObject,
   },
   {
     type : "checkbox",

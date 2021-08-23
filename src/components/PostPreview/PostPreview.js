@@ -9,7 +9,7 @@ function generateColor(){
 export const PostPreview = ({cover='', title, className='', tags=[], slug='', excerpt='' }) => (
   <div className={className}>
     {
-      cover === "" ? <div className={`bg-gradient-to-br ${generateColor()} rounded h-28 m-1`} /> : <div />
+      cover === "" ? <div className={`bg-gradient-to-br ${generateColor()} rounded h-28 m-1`} /> : <div><img src={cover}/></div>
     }  
     <h3 className='text-xl truncate'><Link to={slug}>{title}</Link></h3>
     <div className='inline-flex sm'>

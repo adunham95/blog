@@ -47,6 +47,7 @@ function HomePage({data}) {
         <h2 className="text-2xl border-b-2 border-blue-400 mb-4">Recent Posts</h2>
         <div className="flex flex-col md:flex-row">
           {recentPosts.map(p => <PostPreview key={p.id}
+            cover={p.frontmatter.cover}
             className="w-full mb-2 md:w-1/3"
             title={p.frontmatter.title}
             tags={p.frontmatter.tags}
@@ -60,6 +61,7 @@ function HomePage({data}) {
         <div className="flex flex-col md:flex-row">
           {recentProjects.map(p => <ProjectPreview key={p.id}
             className="w-full mb-2 md:w-1/3"
+            cover={p.cover}
             title={p.title}
             tags={p.tags}
             slug={p.fields.slug}

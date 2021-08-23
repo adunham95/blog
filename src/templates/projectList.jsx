@@ -54,8 +54,10 @@ const ProjectListing = ({ pageContext, data }) =>{
               className="w-full mb-2 md:w-1/3"
               title={p.node.title}
               tags={p.node.tags}
+              stack={p.node.stack}
               slug={p.node.fields.slug}
               description={p.node.description}
+              cover={p.node.cover}
             />)
           }
         </div>
