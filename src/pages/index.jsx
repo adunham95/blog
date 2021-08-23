@@ -40,6 +40,10 @@ function HomePage({data}) {
         </div>
       </Container>
       <Container className="pt-4">
+        <h2 className="text-2xl border-b-2 border-blue-400 mb-4">About Me</h2>
+        <p>I enjoy solving technical problems. I enjoy using React. And any other tech gadgets.</p>
+      </Container>
+      <Container className="pt-4">
         <h2 className="text-2xl border-b-2 border-blue-400 mb-4">Recent Posts</h2>
         <div className="flex flex-col md:flex-row">
           {recentPosts.map(p => <PostPreview key={p.id}
