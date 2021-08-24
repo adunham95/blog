@@ -8,7 +8,18 @@ const technologyObject = require('./data/technology.json');
 const icons = glob.sync(`icons/**.svg`);
 const tags = [...tagsObject, ...technologyObject]
 
-console.log(tags)
+console.log(tags);
+
+const iconComponentTemplate = (
+  { template },
+  opts,
+  { imports, componentName, jsx }
+) =>
+  template.ast`
+        ${imports}
+        ${'\n'}
+        export const ${componentName} = (width="50px", height="50px"}) => ${jsx};
+    `;
 
 icons.forEach((icon) => {
   const svgCode = fs.readFileSync(icon, 'utf8');
@@ -24,15 +35,17 @@ icons.forEach((icon) => {
     //   componentName = `${iconName.charAt(0).toUpperCase() + iconName.slice(1)}Icon`
   }
 
-
-  const componentCode = svgr.sync(
+  let componentCode = svgr.sync(
     svgCode,
     {
+      icon: true,
       // Replace dimentions
-      svgProps: { height: 32, width: 32, viewBox: '0 0 32 32' },
+      svgProps: { height: 50, width: 50, className: `text-brand-${tags[tagIndex].name.replaceAll(' ', '').toLowerCase()} fill-current`},
     },
     { componentName },
   );
+
+  componentCode = componentCode.replace(`className="text-brand-${tags[tagIndex].name.replaceAll(' ', '').toLowerCase()} fill-current"`, `className={\`text-brand-${tags[tagIndex].name.replaceAll(' ', '').toLowerCase()} fill-current \${props.className}\`}`).replace(" {...props}", "")
 //   console.log(componentCode);
 
   fs.writeFileSync(

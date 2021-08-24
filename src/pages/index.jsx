@@ -6,6 +6,7 @@ import Container from "../layout/container.tsx"
 import config from "../../data/SiteConfig";
 import { PostPreview } from "../components/PostPreview/PostPreview";
 import { ProjectPreview } from "../components/ProjectPreview/ProjectPreview";
+import { AboutMe } from "../components/AboutMe/AboutMe";
 
 function HomePage({data}) {
   const recentPosts = data.allMarkdownRemark.nodes;
@@ -41,7 +42,7 @@ function HomePage({data}) {
       </Container>
       <Container className="pt-4">
         <h2 className="text-2xl border-b-2 border-blue-400 mb-4">About Me</h2>
-        <p>I enjoy solving technical problems. I enjoy using React. And any other tech gadgets.</p>
+        <AboutMe/>
       </Container>
       <Container className="pt-4">
         <h2 className="text-2xl border-b-2 border-blue-400 mb-4">Recent Posts</h2>
