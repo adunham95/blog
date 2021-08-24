@@ -10,7 +10,7 @@ import { ProjectPreview } from "../components/ProjectPreview/ProjectPreview";
 function HomePage({data}) {
   const recentPosts = data.allMarkdownRemark.nodes;
   const recentProjects = data.allProjectJson.nodes;
-  console.log(recentProjects)
+  console.log(recentPosts)
 
   return (
     <Layout>

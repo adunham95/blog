@@ -9,7 +9,7 @@ function generateColor(){
 export const ProjectPreview = ({cover='', title, className='', tags=[], stack=[], slug='', description='' }) => (
   <div className={className}>
     {
-      cover === "" ? <div className={`bg-gradient-to-br ${generateColor()} rounded h-28 m-1`} /> : <div className='rounded h-28 m-1'><img className='rounded'
+      (cover === ""||cover==="1.png") ? <div className={`bg-gradient-to-br ${generateColor()} rounded h-28 m-1`} /> : <div className='rounded h-28 m-1'><img className='rounded'
         src={cover} /></div>
 
     }  
