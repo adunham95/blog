@@ -63,7 +63,7 @@ function HomePage({data}) {
             className="w-full mb-2 md:w-1/3"
             cover={p.cover}
             title={p.title}
-            tags={p.tags}
+            tags={[...p.stack,...p.tags]}
             slug={p.fields.slug}
             description={p.description}
           />)}
@@ -106,6 +106,7 @@ query MostRecent {
       }
       description
       cover
+      stack
     }
   }
 }
