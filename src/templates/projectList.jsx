@@ -85,6 +85,7 @@ query ProjectListingQuery($skip: Int!, $limit: Int!) {
           cover
           title
           tags
+          stack
           id
         }
       }
