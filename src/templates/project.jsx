@@ -9,6 +9,7 @@ import config from "../../data/SiteConfig";
 export default function ProjectTemplate({ data, pageContext }) {
   const { slug } = pageContext;
   const project = data.projectJson;
+  console.log(project)
   if (!project.id) {
     project.id = slug;
   }
@@ -21,11 +22,12 @@ export default function ProjectTemplate({ data, pageContext }) {
         </Helmet>
 
         <Container>
-          {project.cover? <div className="bg-gradient-to-br from-indigo-400 to-indigo-700 rounded-b h-80 m-1 mt-0" />: "Cover Image"} 
+          {(project.cover === '' || project.cover === "1.png")? <div className="bg-gradient-to-br from-indigo-400 to-indigo-700 rounded-b h-80 m-1 mt-0" />: <div><img className='rounded-b h-80 m-1 mt-0'
+            src={project.cover}/></div>} 
           <h1 className="text-5xl my-2">{project.title}</h1>
           <p>{project.openSource? "Open Source": "Closed Source"}</p>
           <div className="mb-2">
-            <PostTags tags={project.tags} />
+            <PostTags tags={[...project.tags, ...project.stack]} />
           </div>
         </Container>
       
@@ -42,6 +44,7 @@ export const pageQuery = graphql`
         description
         openSource
         tags
+        stack
         title
       }
   }
