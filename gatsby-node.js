@@ -92,6 +92,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           title
           tags
+          stack
         }
       }
     }
@@ -232,12 +233,15 @@ exports.createPages = async ({ graphql, actions }) => {
       edge.node.tags.forEach((tag) => {
         tagSet.add(tag);
       });
+      edge.node.stack.forEach((sItem) => {
+        tagSet.add(sItem);
+      });
     }
 
-    const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
-    const prevID = index - 1 >= 0 ? index - 1 : postsEdges.length - 1;
-    const nextEdge = postsEdges[nextID];
-    const prevEdge = postsEdges[prevID];
+    const nextID = index + 1 < projectEdges.length ? index + 1 : 0;
+    const prevID = index - 1 >= 0 ? index - 1 : projectEdges.length - 1;
+    const nextEdge = projectEdges[nextID];
+    const prevEdge = projectEdges[prevID];
 
     createPage({
       path: edge.node.fields.slug,
