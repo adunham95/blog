@@ -8,7 +8,7 @@ function getBrandColors(){
   tags.forEach((icon) => {
     colors[icon.name.replaceAll(' ', '').toLowerCase()] = icon.color
   });
-  console.log(colors)
+  // console.log(colors)
   return colors;
 }
 
