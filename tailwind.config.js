@@ -1,3 +1,7 @@
+const tagData = require("./getTagData")
+
+const brandColors = tagData.getBrandColors()
+
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
@@ -9,6 +13,9 @@ module.exports = {
         'screen-1/2': 'calc(100vh / 2)',
         'screen-1/4': 'calc(100vh / 4)',
         'screen-3/4': 'calc(100vh * 0.75)',
+      },
+      colors: {
+        brand: brandColors,
       },
     },
   },

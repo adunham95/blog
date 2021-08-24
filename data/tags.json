@@ -1,9 +1,12 @@
 [
-    {"name":"Programming","checked":true,"color":"#059669"},
+    {"name":"Programming","checked":true,"color":"#059669", "icon": "windowsterminal"},
     {"name":"testing","checked":false,"color":"#DC2626"},
     {"name":"test","checked":false,"color":"#DC2626"},
     {"name":"cheese","checked":false,"color":"#FFD60B"},
-    {"name":"VS Code","checked":false,"color":"#007acc"},
-    {"name":"Ubuntu","checked":false,"color":"dd4814"},
-    {"name":"Windows","checked":false,"color":"e072c6"}
+    {"name":"VS Code","checked":false,"color":"#007acc", "icon": "visualstudiocode"},
+    {"name":"Ubuntu","checked":false,"color":"#dd4814", "icon": "ubuntu"},
+    {"name":"Windows","checked":false,"color":"#e072c6", "icon": "windows"},
+    {"name":"MacOS","checked":false,"color":"#000000", "icon": "macos"},
+    {"name":"CSS","checked":false,"color":"#1572B6", "icon": "css3"},
+    {"name":"HTML","checked":false,"color":"#E34F26", "icon": "html5"}
 ]
