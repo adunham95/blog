@@ -1,6 +1,6 @@
 ---
 title: "Var Let Const"
-cover: "5.jpg"
+cover: "1.jpg"
 category: "moar"
 date: "2021-03-01"
 tags:

@@ -8,7 +8,7 @@ tags:
   - Styled Components
 date: 2020-07-11T03:03:11.250Z
 description: My experience with  Styled Components vs SCSS
-cover: '5.jpg'
+cover: '1.jpg'
 ---
 
 - Intro
