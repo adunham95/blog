@@ -105,6 +105,7 @@ query MostRecent {
         slug
       }
       description
+      cover
     }
   }
 }
