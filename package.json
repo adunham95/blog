@@ -81,6 +81,7 @@
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "format:styles": "prettier '**/*.{css,scss}' --write",
+    "build:icons": "node buildIcons.js",
     "new:Post": "node newPost.js",
     "new:Tag": "node newTag.js"
   },

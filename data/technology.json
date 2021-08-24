@@ -17,5 +17,8 @@
     {"name":"Webpack","checked":false,"color":"#8dd6f9", "icon":"webpack"},
     {"name":"Wordpress","checked":false,"color":"#21759b", "icon": "wordpress"},
     {"name":"GraphQL","checked":false,"color":"#E434AA", "icon": "graphlql"},
-    {"name":"Deno","checked":false,"color":"#000000", "icon": "deno"}
+    {"name":"Deno","checked":false,"color":"#000000", "icon": "deno"},
+    {"name":"Angular","checked":false,"color":"#DD0031", "icon": "angular"},
+    {"name":"Amazon AWS","checked":false,"color":"#232F3E", "icon": "amazonaws"},
+    {"name":"Electron","checked":false,"color":"#47848F", "icon": "electron"}
 ]

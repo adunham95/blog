@@ -8,5 +8,6 @@
     {"name":"Windows","checked":false,"color":"#e072c6", "icon": "windows"},
     {"name":"MacOS","checked":false,"color":"#000000", "icon": "macos"},
     {"name":"CSS","checked":false,"color":"#1572B6", "icon": "css3"},
-    {"name":"HTML","checked":false,"color":"#E34F26", "icon": "html5"}
+    {"name":"HTML","checked":false,"color":"#E34F26", "icon": "html5"},
+    {"name":"GitHub","checked":false,"color":"#181717", "icon": "github"}
 ]
