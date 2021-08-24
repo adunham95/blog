@@ -96,7 +96,7 @@ query MostRecent {
       excerpt
     }
   }
-  allProjectJson(limit: 3) {
+  allProjectJson(limit: 3, sort: {order: ASC, fields: id}) {
     nodes {
       id
       tags
