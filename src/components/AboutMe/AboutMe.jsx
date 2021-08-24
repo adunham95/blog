@@ -6,6 +6,7 @@ import ReactIcon from '../Icons/ReactIcon'
 import SCSSIcon from '../Icons/SCSSIcon'
 import VSCodeIcon from '../Icons/VSCodeIcon'
 import NodeJSIcon from '../Icons/NodeJSIcon'
+import GithubIcon from '../Icons/GitHubIcon'
 
 const iconStyles = "p-2 h-auto w-1/4 md:w-1/8"
 
@@ -20,6 +21,7 @@ export const AboutMe = () => (
       <NodeJSIcon className={iconStyles}/>
       <SCSSIcon className={iconStyles}/>
       <VSCodeIcon className={iconStyles}/>
+      <GithubIcon className={iconStyles}/>
     </div>
   </div>
 )
