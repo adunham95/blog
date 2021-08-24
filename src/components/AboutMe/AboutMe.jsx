@@ -7,17 +7,19 @@ import SCSSIcon from '../Icons/SCSSIcon'
 import VSCodeIcon from '../Icons/VSCodeIcon'
 import NodeJSIcon from '../Icons/NodeJSIcon'
 
+const iconStyles = "p-2 h-auto w-1/4 md:w-1/8"
+
 export const AboutMe = () => (
   <div>
     <p>I enjoy solving technical problems. I enjoy using React. And any other tech gadgets.</p>
-    <div className="flex">
-      <HTMLIcon className="pt-1"/>
-      <CSSIcon  className="pt-1"/>
-      <JavascriptIcon className="pt-1"/>
-      <ReactIcon className="pt-1"/>
-      <NodeJSIcon className="pt-1"/>
-      <SCSSIcon className="pt-1"/>
-      <VSCodeIcon className="pt-1"/>
+    <div className="flex flex-wrap">
+      <HTMLIcon className={iconStyles}/>
+      <CSSIcon  className={iconStyles}/>
+      <JavascriptIcon className={iconStyles}/>
+      <ReactIcon className={iconStyles}/>
+      <NodeJSIcon className={iconStyles}/>
+      <SCSSIcon className={iconStyles}/>
+      <VSCodeIcon className={iconStyles}/>
     </div>
   </div>
 )
