@@ -83,7 +83,8 @@
     "format:styles": "prettier '**/*.{css,scss}' --write",
     "build:icons": "node buildIcons.js",
     "new:Post": "node newPost.js",
-    "new:Tag": "node newTag.js"
+    "new:Tag": "node newTag.js",
+    "new:project": "node newProject.js"
   },
   "remarkConfig": {
     "plugins": [
